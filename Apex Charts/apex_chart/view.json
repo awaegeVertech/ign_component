@@ -1,0 +1,402 @@
+{
+  "custom": {},
+  "params": {
+    "options": {
+      "chart": {
+        "animations": {
+          "enabled": true
+        },
+        "dropShadow": {
+          "blur": 5,
+          "color": "#222",
+          "enabled": false,
+          "left": 1,
+          "opacity": 0.5,
+          "top": 0
+        },
+        "events": {
+          "animationEnd": false,
+          "beforeMount": false,
+          "beforeResetZoom": false,
+          "beforeZoom": false,
+          "brushScrolled": false,
+          "click": false,
+          "dataPointMouseEnter": false,
+          "dataPointMouseLeave": false,
+          "dataPointSelection": false,
+          "legendClick": false,
+          "markerClick": false,
+          "mounted": false,
+          "mouseLeave": false,
+          "mouseMove": false,
+          "scrolled": false,
+          "selection": false,
+          "updated": false,
+          "zoomed": false
+        },
+        "stacked": false,
+        "width": 400
+      },
+      "dataLabels": {
+        "enabled": false
+      },
+      "legend": {
+        "floating": true,
+        "fontSize": "14px",
+        "fontWeight": 600,
+        "inverseOrder": false,
+        "onItemClick": {
+          "toggleDataSeries": true
+        },
+        "onItemHover": {
+          "highlightDataSeries": true
+        },
+        "position": "left",
+        "show": true
+      },
+      "markers": {},
+      "noData": {
+        "align": "center",
+        "style": {
+          "fontSize": "16px"
+        },
+        "text": "No Data"
+      },
+      "plotOptions": {
+        "bar": {
+          "dataLabels": {
+            "total": {
+              "enabled": false,
+              "style": {
+                "fontSize": "13px",
+                "fontWeight": 900
+              }
+            }
+          },
+          "horizontal": true
+        }
+      },
+      "theme": {
+        "mode": "light",
+        "palette": "palette5"
+      },
+      "title": {
+        "align": "center",
+        "style": {
+          "fontSize": "20px"
+        },
+        "text": "Total Shift Downtime"
+      },
+      "tooltip": {
+        "custom_": "function ({ series, seriesIndex, dataPointIndex, w }) {\nvar txt \u003d \u0027\u0027;\n\n//series.forEach((s) \u003d\u003e {\n//currentTotal +\u003d s[dataPointIndex];\n//txt +\u003d w.config.series[seriesIndex].name;\n//});\n\n//txt +\u003d w.config.xaxis.categories[dataPointIndex] + \u0027\u003cbr\u003e\u0027;\n\nw.config.series.forEach((s) \u003d\u003e {\nvalue \u003d s.data[dataPointIndex];\n\nif (typeof value !\u003d\u003d \u0027undefined\u0027) {\nvalue \u003d value.toString().replace(/\\B(?\u003d(\\d{3})+(?!\\d))/g, \",\");\n}\n\ntxt +\u003d s.name + \u0027: \u0027 + value + \u0027\u003cbr\u003e\u0027;\n});\n\nreturn txt;\n}",
+        "intersect": false,
+        "shared": true,
+        "x": {
+          "format": "M/d/yy"
+        },
+        "y": {
+          "formatter": "function (value, { series, seriesIndex, dataPointIndex, w }) \n{\nreturn value.toString().replace(/\\B(?\u003d(\\d{3})+(?!\\d))/g, \",\");\n}"
+        }
+      },
+      "xaxis": {
+        "categories": [
+          "FLE02",
+          "SPZE02",
+          "SSWE02",
+          "DPE02",
+          "DSE02",
+          "RDPE02",
+          "PAE02",
+          "CPE02",
+          "RPZE02",
+          "LFE02",
+          "TPE02"
+        ],
+        "labels": {
+          "show": true
+        },
+        "title": {
+          "text": ""
+        },
+        "type": "categories"
+      },
+      "yaxis": {
+        "show": false,
+        "title": {
+          "text": ""
+        }
+      }
+    },
+    "series": [
+      {
+        "data": [
+          63,
+          43,
+          40,
+          32,
+          25,
+          22,
+          21,
+          18,
+          15,
+          12
+        ],
+        "name": "Series 1"
+      }
+    ],
+    "type": "bar"
+  },
+  "propConfig": {
+    "params.options": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.series": {
+      "paramDirection": "input",
+      "persistent": true
+    },
+    "params.type": {
+      "paramDirection": "input",
+      "persistent": true
+    }
+  },
+  "props": {
+    "defaultSize": {
+      "height": 608,
+      "width": 950
+    }
+  },
+  "root": {
+    "children": [
+      {
+        "meta": {
+          "name": "chart"
+        },
+        "position": {
+          "basis": "200px",
+          "grow": 1
+        },
+        "propConfig": {
+          "props.options.chart.animations.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.chart.animations.enabled"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.chart.stacked": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.chart.stacked"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.dataLabels.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.dataLabels.enabled"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.noData.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.noData.text"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.plotOptions.bar.dataLabels.total.enabled": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.plotOptions.bar.dataLabels.total.enabled"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.plotOptions.bar.horizontal": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.plotOptions.bar.horizontal"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.title.align": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.title.align"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.title.style.fontSize": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.title.style.fontSize"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.title.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.title.text"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.tooltip": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.tooltip"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.xaxis.categories": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.xaxis.categories"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.xaxis.title.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.xaxis.title.text"
+              },
+              "type": "property"
+            }
+          },
+          "props.options.yaxis.title.text": {
+            "binding": {
+              "config": {
+                "path": "view.params.options.yaxis.title.text"
+              },
+              "type": "property"
+            }
+          },
+          "props.series": {
+            "binding": {
+              "config": {
+                "path": "view.params.series"
+              },
+              "type": "property"
+            }
+          },
+          "props.type": {
+            "binding": {
+              "config": {
+                "path": "view.params.type"
+              },
+              "type": "property"
+            }
+          }
+        },
+        "props": {
+          "options": {
+            "chart": {
+              "animations": {},
+              "dropShadow": {
+                "blur": 5,
+                "color": "#222",
+                "enabled": false,
+                "left": 1,
+                "opacity": 0.5,
+                "top": 0
+              },
+              "events": {
+                "animationEnd": false,
+                "beforeMount": false,
+                "beforeResetZoom": false,
+                "beforeZoom": false,
+                "brushScrolled": false,
+                "click": false,
+                "dataPointMouseEnter": false,
+                "dataPointMouseLeave": false,
+                "dataPointSelection": false,
+                "legendClick": false,
+                "markerClick": false,
+                "mounted": false,
+                "mouseLeave": false,
+                "mouseMove": false,
+                "scrolled": false,
+                "selection": false,
+                "updated": false,
+                "zoomed": false
+              },
+              "width": 400
+            },
+            "dataLabels": {},
+            "legend": {
+              "floating": false,
+              "horizontalAlign": "left",
+              "inverseOrder": false,
+              "onItemClick": {
+                "toggleDataSeries": true
+              },
+              "onItemHover": {
+                "highlightDataSeries": true
+              },
+              "position": "bottom",
+              "show": true
+            },
+            "markers": {},
+            "noData": {
+              "align": "center",
+              "style": {
+                "fontSize": "16px"
+              }
+            },
+            "plotOptions": {
+              "bar": {
+                "dataLabels": {
+                  "total": {
+                    "style": {
+                      "fontSize": "13px",
+                      "fontWeight": 900
+                    }
+                  }
+                }
+              }
+            },
+            "theme": {
+              "mode": "light",
+              "palette": "palette1"
+            },
+            "title": {
+              "style": {}
+            },
+            "xaxis": {
+              "labels": {
+                "show": true
+              },
+              "title": {},
+              "type": "categories"
+            },
+            "yaxis": {
+              "show": true,
+              "title": {}
+            }
+          },
+          "style": {
+            "margin": "25px"
+          }
+        },
+        "type": "kyvislabs.display.apexchart"
+      }
+    ],
+    "meta": {
+      "name": "root"
+    },
+    "props": {
+      "direction": "column"
+    },
+    "type": "ia.container.flex"
+  }
+}
