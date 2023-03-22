@@ -25,7 +25,7 @@
           "basis": "32px"
         },
         "props": {
-          "text": "Test project for git deployment"
+          "text": "Test project for git deployment-- test 2"
         },
         "type": "ia.display.label"
       }
